@@ -905,133 +905,90 @@
                 <h3>Send Me a Message</h3>
 
 
-                <form
-                    action="https://formsubmit.co/sdniteshin@gmail.com"
-                    method="POST"
-                >
+                <!-- Contact Form -->
+<div class="contact-form">
 
-                    <input
-                        type="hidden"
-                        name="_subject"
-                        value="New Contact Message from Website"
-                    >
+    <h3>Send Me a Message</h3>
 
-                    <input
-                        type="hidden"
-                        name="_captcha"
-                        value="false"
-                    >
+    <form
+        action="https://script.google.com/macros/s/AKfycbxVHonpZUVCJ6oeA6VYpji-FFOcDBguBYYeNynI9HTNO6Zv6URggbqNnL5xbZhMtagiKg/exec"
+        method="POST"
+    >
 
-                    <input
-                        type="hidden"
-                        name="_template"
-                        value="table"
-                    >
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Your Name</label>
 
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+        </div>
 
-                    <!-- Name -->
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Your Email</label>
 
-                    <div class="form-group">
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+        </div>
 
-                        <label for="name">
-                            Your Name
-                        </label>
+        <!-- Phone -->
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
 
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter your name"
-                            required
-                        >
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+            >
+        </div>
 
-                    </div>
+        <!-- Subject -->
+        <div class="form-group">
+            <label for="subject">Subject</label>
 
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Enter subject"
+                required
+            >
+        </div>
 
-                    <!-- Email -->
+        <!-- Message -->
+        <div class="form-group">
+            <label for="message">Message</label>
 
-                    <div class="form-group">
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+        </div>
 
-                        <label for="email">
-                            Your Email
-                        </label>
+        <!-- Button -->
+        <button
+            type="submit"
+            class="contact-btn"
+        >
+            Send Message
+        </button>
 
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required
-                        >
+    </form>
 
-                    </div>
-
-
-                    <!-- Phone -->
-
-                    <div class="form-group">
-
-                        <label for="phone">
-                            Phone Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="Enter your phone number"
-                        >
-
-                    </div>
-
-
-                    <!-- Subject -->
-
-                    <div class="form-group">
-
-                        <label for="subject">
-                            Subject
-                        </label>
-
-                        <input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            placeholder="Enter subject"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- Message -->
-
-                    <div class="form-group">
-
-                        <label for="message">
-                            Message
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder="Write your message..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <!-- Button -->
-
-                    <button
-                        type="submit"
-                        class="contact-btn"
-                    >
-                        Send Message
-                    </button>
-
-                </form>
+</div>
 
             </div>
 
