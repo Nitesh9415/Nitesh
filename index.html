@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>https://nitesh9415.github.io/</title>
+    <title>Nitesh Singh | IT Senior Executive</title>
 
     <style>
-
         /* =========================
            GLOBAL
         ========================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +28,6 @@
         /* =========================
            NAVBAR
         ========================= */
-
         nav {
             position: fixed;
             top: 0;
@@ -68,32 +65,56 @@
         }
 
         /* =========================
-           HERO
+           HERO & PROFILE PHOTO
         ========================= */
-
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 100px 8% 50px;
-
-            background:
-                radial-gradient(
-                    circle at 80% 30%,
-                    #123b58 0%,
-                    transparent 30%
-                ),
-                #0b1120;
+            padding: 120px 8% 50px;
+            background: radial-gradient(circle at 80% 30%, #123b58 0%, transparent 30%), #0b1120;
         }
 
         .hero-content {
             max-width: 800px;
         }
 
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid #38bdf8;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            background: #1e293b;
+        }
+
+        .change-photo-btn {
+            background: transparent;
+            color: #38bdf8;
+            border: 1px dashed #38bdf8;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .change-photo-btn:hover {
+            background: rgba(56, 189, 248, 0.1);
+        }
+
         .hero h4 {
             color: #38bdf8;
             font-size: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .hero h1 {
@@ -104,7 +125,7 @@
         }
 
         .hero h2 {
-            font-size: 30px;
+            font-size: 28px;
             color: #94a3b8;
             margin-bottom: 20px;
         }
@@ -147,9 +168,8 @@
         }
 
         /* =========================
-           GENERAL
+           GENERAL SECTIONS
         ========================= */
-
         section {
             padding: 90px 8%;
         }
@@ -173,10 +193,7 @@
             margin-top: 10px;
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
-
+        /* ABOUT */
         .about {
             background: #0f172a;
         }
@@ -192,16 +209,10 @@
             font-size: 17px;
         }
 
-        /* =========================
-           SKILLS
-        ========================= */
-
+        /* SKILLS */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(220px, 1fr)
-            );
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
 
@@ -227,10 +238,7 @@
             color: #94a3b8;
         }
 
-        /* =========================
-           EXPERIENCE
-        ========================= */
-
+        /* EXPERIENCE */
         .experience {
             background: #0f172a;
         }
@@ -278,16 +286,10 @@
             color: #cbd5e1;
         }
 
-        /* =========================
-           SERVICES
-        ========================= */
-
+        /* SERVICES */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(230px, 1fr)
-            );
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 20px;
         }
 
@@ -320,9 +322,8 @@
         }
 
         /* =========================
-           CONTACT
+           CONTACT & FORM
         ========================= */
-
         .contact {
             background: #0f172a;
         }
@@ -375,8 +376,6 @@
         .contact-detail a:hover {
             color: #38bdf8;
         }
-
-        /* FORM */
 
         .form-group {
             margin-bottom: 18px;
@@ -452,9 +451,66 @@
         }
 
         /* =========================
-           FOOTER
+           ADMIN PHOTO MODAL
         ========================= */
+        #admin-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .modal-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-card h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .modal-card label {
+            display: block;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .modal-card input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            background: #0b1120;
+            border: 1px solid #374151;
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .modal-card input[type="file"] {
+            width: 100%;
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* =========================
+           FOOTER & VISITOR COUNTER
+        ========================= */
         footer {
             text-align: center;
             padding: 25px;
@@ -462,61 +518,45 @@
             color: #64748b;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        .visitor-counter {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        #visitor-count {
+            color: #38bdf8;
+            font-weight: bold;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
 
         @media (max-width: 700px) {
-
             nav {
                 padding: 15px 5%;
                 flex-direction: column;
                 gap: 10px;
             }
-
             nav ul {
                 gap: 12px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .hero {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-
             section {
                 padding: 70px 5%;
             }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero h2 {
-                font-size: 23px;
-            }
-
             .contact-container {
                 grid-template-columns: 1fr;
             }
-
-            .contact-info,
-            .contact-form {
-                padding: 22px;
-            }
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAVBAR -->
     <nav>
         <div class="logo">Welcome to My Site</div>
         <ul>
@@ -529,17 +569,26 @@
         </ul>
     </nav>
 
-    <!-- HOME -->
+    <!-- HERO -->
     <section class="hero" id="home">
         <div class="hero-content">
+
+            <!-- Profile Photo Area -->
+            <div class="profile-container">
+                <img id="profile-img" class="profile-pic" src="https://via.placeholder.com/150" alt="Nitesh Singh">
+                <button type="button" class="change-photo-btn" onclick="openLoginModal()">
+                    📷 Change Photo
+                </button>
+            </div>
+
             <h4>Hello, I'm</h4>
             <h1>Nitesh Singh</h1>
             <h2>IT Senior Executive</h2>
             <p>
-                IT professional experienced in system administration,
-                hardware and software support, networking, IT asset
-                management, troubleshooting and day-to-day technical support.
+                IT professional experienced in system administration, hardware and software support,
+                networking, IT asset management, troubleshooting and day-to-day technical support.
             </p>
+
             <a href="#contact" class="btn primary">Contact Me</a>
             <a href="resume.pdf" class="btn secondary" download>Download Resume</a>
         </div>
@@ -553,10 +602,8 @@
         </div>
         <div class="about-content">
             <p>
-                I am an IT professional focused on providing reliable
-                technical support and maintaining smooth IT operations.
-                My work includes system troubleshooting, hardware and
-                software management, network support, user assistance,
+                I am an IT professional focused on providing reliable technical support and maintaining smooth IT operations.
+                My work includes system troubleshooting, hardware and software management, network support, user assistance,
                 IT asset management and documentation.
             </p>
         </div>
@@ -623,7 +670,6 @@
                     <li>Maintained IT documentation and records.</li>
                 </ul>
             </div>
-
             <div class="job">
                 <h3>Neelkamal Polytex Pvt. Ltd.</h3>
                 <h4>IT / Computer & Billing Support</h4>
@@ -637,7 +683,6 @@
                     <li>Prepared and managed e-way bills.</li>
                 </ul>
             </div>
-
             <div class="job">
                 <h3>Associate</h3>
                 <h4>Gati Kintetsu Express Pvt. Ltd.</h4>
@@ -697,127 +742,218 @@
             <h2>Contact <span>Us</span></h2>
             <p>Let's connect and discuss your IT requirements</p>
         </div>
-
         <div class="contact-container">
-            <!-- Contact Information -->
             <div class="contact-info">
                 <h3>Get In Touch</h3>
-                <p>
-                    If you have any questions, IT support requirements,
-                    or would like to discuss an opportunity, feel free
-                    to contact me.
-                </p>
+                <p>If you have any questions, IT support requirements, or would like to discuss an opportunity, feel free to contact me.</p>
 
                 <div class="contact-detail">
                     <strong>👤 Name</strong>
                     <span>Nitesh Singh</span>
                 </div>
-
                 <div class="contact-detail">
                     <strong>💼 Profession</strong>
                     <span>IT Senior Executive</span>
                 </div>
-
                 <div class="contact-detail">
                     <strong>📧 Email</strong>
                     <a href="mailto:sdniteshin@gmail.com">sdniteshin@gmail.com</a>
                 </div>
-
                 <div class="contact-detail">
                     <strong>📱 Phone</strong>
                     <a href="tel:+917201994161">+91 7201994161</a>
                 </div>
             </div>
 
-            <!-- Contact Form -->
             <div class="contact-form">
                 <h3>Send Me a Message</h3>
-
-                <!-- Contact Form -->
-            <div class="contact-form">
-                <h3>Send Me a Message</h3>
-
-                <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxVHonpZUVCJ6oeA6VYpji-FFOcDBguBYYeNynI9HTNO6Zv6URggbqNnL5xbZhMtagiKg/exec" method="POST">
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" required>
                     </div>
-
                     <div class="form-group">
                         <label for="email">Your Email</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email" required>
                     </div>
-
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                     </div>
-
                     <div class="form-group">
                         <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
                     </div>
-
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
                     </div>
-
                     <button type="submit" id="submit-btn" class="contact-btn">Send Message</button>
                     <p id="form-status"></p>
                 </form>
-            
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="admin-modal">
+        <div class="modal-card">
+            <h3>Admin: Update Profile Photo</h3>
+            <label for="admin-pass">Password</label>
+            <input type="password" id="admin-pass" placeholder="Enter admin password">
 
-  <footer>
+            <label for="photo-input">Select Photo</label>
+            <input type="file" id="photo-input" accept="image/*">
+
+            <p id="upload-status" style="font-size: 13px; margin-bottom: 12px; display: none;"></p>
+
+            <div class="modal-actions">
+                <button type="button" onclick="closeLoginModal()" style="padding: 8px 14px; background: #374151; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
+                <button type="button" id="upload-btn" onclick="submitPhotoUpload()" style="padding: 8px 16px; background: #38bdf8; color: #06121d; font-weight: bold; border: none; border-radius: 4px; cursor: pointer;">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
         <p>© 2026 Nitesh Singh. All Rights Reserved.</p>
-        <div style="margin-top: 10px;">
-            <img src="https://hits.sh/sdniteshin.github.io.svg?label=Visitors&color=38bdf8&labelColor=111827" alt="Total Visitors" />
+        <div class="visitor-counter">
+            👁️ Total Visitors: <span id="visitor-count">Loading...</span>
         </div>
     </footer>
 
-    <!-- Form Submit Handler Script -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        const form = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const formStatus = document.getElementById('form-status');
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxVHonpZUVCJ6oeA6VYpji-FFOcDBguBYYeNynI9HTNO6Zv6URggbqNnL5xbZhMtagiKg/exec";
 
-        form.addEventListener('submit', function (e) {
+        // 1. AUTO-LOAD LATEST PHOTO FOR EVERY VISITOR
+        window.addEventListener("DOMContentLoaded", () => {
+            fetch(SCRIPT_URL)
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.photoUrl) {
+                        document.getElementById("profile-img").src = data.photoUrl;
+                    }
+                })
+                .catch(err => console.log("Default image active"));
+
+            // Total visitor count
+            fetch("https://api.counterapi.dev/v1/nitesh-singh-portfolio/visitors/up")
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.count) {
+                        document.getElementById("visitor-count").textContent = data.count.toLocaleString();
+                    }
+                })
+                .catch(() => {
+                    document.getElementById("visitor-count").textContent = "1";
+                });
+        });
+
+        // 2. CONTACT FORM SUBMIT
+        const contactForm = document.getElementById("contact-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const formStatus = document.getElementById("form-status");
+
+        contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
 
             submitBtn.disabled = true;
-            submitBtn.innerText = 'Sending...';
-            formStatus.className = '';
-            formStatus.textContent = '';
+            submitBtn.innerText = "Sending...";
+            formStatus.className = "";
+            formStatus.textContent = "";
 
-            const formData = new FormData(form);
+            const formData = new FormData(contactForm);
 
-            fetch(form.action, {
-                method: 'POST',
+            fetch(SCRIPT_URL, {
+                method: "POST",
                 body: formData,
-                mode: 'no-cors'
+                mode: "no-cors"
             })
             .then(() => {
-                formStatus.className = 'success';
-                formStatus.textContent = 'Message sent successfully!';
-                form.reset();
+                formStatus.className = "success";
+                formStatus.textContent = "Message sent successfully!";
+                contactForm.reset();
             })
-            .catch(error => {
-                formStatus.className = 'error';
-                formStatus.textContent = 'Something went wrong. Please try again or email directly.';
+            .catch(() => {
+                formStatus.className = "error";
+                formStatus.textContent = "Something went wrong. Please try again.";
             })
             .finally(() => {
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'Send Message';
+                submitBtn.innerText = "Send Message";
             });
         });
+
+        // 3. ADMIN PHOTO UPLOAD MODAL
+        function openLoginModal() {
+            document.getElementById("admin-modal").style.display = "flex";
+            document.getElementById("upload-status").style.display = "none";
+        }
+
+        function closeLoginModal() {
+            document.getElementById("admin-modal").style.display = "none";
+        }
+
+        function submitPhotoUpload() {
+            const password = document.getElementById("admin-pass").value;
+            const fileInput = document.getElementById("photo-input");
+            const status = document.getElementById("upload-status");
+            const uploadBtn = document.getElementById("upload-btn");
+
+            if (!password) {
+                alert("Please enter the password.");
+                return;
+            }
+            if (fileInput.files.length === 0) {
+                alert("Please select a photo.");
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            status.style.display = "block";
+            status.style.color = "#38bdf8";
+            status.textContent = "Uploading photo...";
+            uploadBtn.disabled = true;
+
+            reader.onload = function(event) {
+                const base64Data = event.target.result;
+
+                const formData = new URLSearchParams();
+                formData.append("action", "upload_photo");
+                formData.append("password", password);
+                formData.append("image_data", base64Data);
+                formData.append("image_type", file.type);
+
+                fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result === "success") {
+                        status.style.color = "#34d399";
+                        status.textContent = "Photo updated successfully!";
+                        document.getElementById("profile-img").src = data.photoUrl;
+                        setTimeout(closeLoginModal, 1500);
+                    } else {
+                        status.style.color = "#f87171";
+                        status.textContent = data.message || "Upload failed.";
+                    }
+                })
+                .catch(() => {
+                    status.style.color = "#f87171";
+                    status.textContent = "Error uploading. Please verify deployment.";
+                })
+                .finally(() => {
+                    uploadBtn.disabled = false;
+                });
+            };
+
+            reader.readAsDataURL(file);
+        }
     </script>
 </body>
 
