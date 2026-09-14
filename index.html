@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -331,7 +330,6 @@
         .contact-container {
             max-width: 1000px;
             margin: auto;
-
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -431,6 +429,28 @@
             transform: translateY(-2px);
         }
 
+        .contact-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #form-status {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+
+        #form-status.success {
+            display: block;
+            color: #34d399;
+        }
+
+        #form-status.error {
+            display: block;
+            color: #f87171;
+        }
+
         /* =========================
            FOOTER
         ========================= */
@@ -496,16 +516,9 @@
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
-
+    <!-- NAVIGATION -->
     <nav>
-
-        <div class="logo">
-            Welcome to My Site
-        </div>
-
+        <div class="logo">Welcome to My Site</div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -514,63 +527,31 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-
     </nav>
 
-
-    <!-- =========================
-         HOME
-    ========================== -->
-
+    <!-- HOME -->
     <section class="hero" id="home">
-
         <div class="hero-content">
-
             <h4>Hello, I'm</h4>
-
             <h1>Nitesh Singh</h1>
-
             <h2>IT Senior Executive</h2>
-
             <p>
                 IT professional experienced in system administration,
                 hardware and software support, networking, IT asset
                 management, troubleshooting and day-to-day technical support.
             </p>
-
-            <a href="#contact" class="btn primary">
-                Contact Me
-            </a>
-
-            <a href="resume.pdf" class="btn secondary" download>
-                Download Resume
-            </a>
-
+            <a href="#contact" class="btn primary">Contact Me</a>
+            <a href="resume.pdf" class="btn secondary" download>Download Resume</a>
         </div>
-
     </section>
 
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
+    <!-- ABOUT -->
     <section class="about" id="about">
-
         <div class="section-title">
-
-            <h2>
-                About <span>Me</span>
-            </h2>
-
-            <p>
-                Professional IT Support & Administration
-            </p>
-
+            <h2>About <span>Me</span></h2>
+            <p>Professional IT Support & Administration</p>
         </div>
-
         <div class="about-content">
-
             <p>
                 I am an IT professional focused on providing reliable
                 technical support and maintaining smooth IT operations.
@@ -578,121 +559,62 @@
                 software management, network support, user assistance,
                 IT asset management and documentation.
             </p>
-
         </div>
-
     </section>
 
-
-    <!-- =========================
-         SKILLS
-    ========================== -->
-
+    <!-- SKILLS -->
     <section id="skills">
-
         <div class="section-title">
-
-            <h2>
-                My <span>Skills</span>
-            </h2>
-
-            <p>
-                Technical skills and areas of expertise
-            </p>
-
+            <h2>My <span>Skills</span></h2>
+            <p>Technical skills and areas of expertise</p>
         </div>
-
         <div class="skills-grid">
-
             <div class="skill-card">
                 <h3>System Administration</h3>
-                <p>
-                    Windows systems, user management and system maintenance.
-                </p>
+                <p>Windows systems, user management and system maintenance.</p>
             </div>
-
             <div class="skill-card">
                 <h3>Hardware Support</h3>
-                <p>
-                    Desktop, laptop, printer and peripheral troubleshooting.
-                </p>
+                <p>Desktop, laptop, printer and peripheral troubleshooting.</p>
             </div>
-
             <div class="skill-card">
                 <h3>Networking</h3>
-                <p>
-                    LAN, connectivity, network troubleshooting and support.
-                </p>
+                <p>LAN, connectivity, network troubleshooting and support.</p>
             </div>
-
             <div class="skill-card">
                 <h3>Software Support</h3>
-                <p>
-                    Software installation, configuration and troubleshooting.
-                </p>
+                <p>Software installation, configuration and troubleshooting.</p>
             </div>
-
             <div class="skill-card">
                 <h3>Microsoft Office</h3>
-                <p>
-                    MS Word, Excel, PowerPoint and daily office applications.
-                </p>
+                <p>MS Word, Excel, PowerPoint and daily office applications.</p>
             </div>
-
             <div class="skill-card">
                 <h3>Google Workspace</h3>
-                <p>
-                    Google Sheets, documentation and collaborative work.
-                </p>
+                <p>Google Sheets, documentation and collaborative work.</p>
             </div>
-
             <div class="skill-card">
                 <h3>IT Asset Management</h3>
-                <p>
-                    Computer, laptop, printer and IT equipment management.
-                </p>
+                <p>Computer, laptop, printer and IT equipment management.</p>
             </div>
-
             <div class="skill-card">
                 <h3>Backup & Data</h3>
-                <p>
-                    Data management, backup support and documentation.
-                </p>
+                <p>Data management, backup support and documentation.</p>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================
-         EXPERIENCE
-    ========================== -->
-
+    <!-- EXPERIENCE -->
     <section class="experience" id="experience">
-
         <div class="section-title">
-
-            <h2>
-                Work <span>Experience</span>
-            </h2>
-
-            <p>
-                My professional journey
-            </p>
-
+            <h2>Work <span>Experience</span></h2>
+            <p>My professional journey</p>
         </div>
-
         <div class="timeline">
-
             <div class="job">
-
                 <h3>IT Senior Executive</h3>
-
                 <h4>Current Organization</h4>
-
                 <p>Present</p>
-
                 <ul>
                     <li>Provided IT support to users and departments.</li>
                     <li>Managed hardware and software troubleshooting.</li>
@@ -700,18 +622,12 @@
                     <li>Managed IT assets and equipment.</li>
                     <li>Maintained IT documentation and records.</li>
                 </ul>
-
             </div>
 
-
             <div class="job">
-
                 <h3>Neelkamal Polytex Pvt. Ltd.</h3>
-
                 <h4>IT / Computer & Billing Support</h4>
-
                 <p>Feb 2023 – Mar 2026</p>
-
                 <ul>
                     <li>Maintained inward and outward stock records.</li>
                     <li>Worked with Google Sheets for daily entries.</li>
@@ -720,296 +636,177 @@
                     <li>Worked with Tally Prime.</li>
                     <li>Prepared and managed e-way bills.</li>
                 </ul>
-
             </div>
 
-
             <div class="job">
-
                 <h3>Associate</h3>
-
                 <h4>Gati Kintetsu Express Pvt. Ltd.</h4>
-
                 <p>Previous Experience</p>
-
                 <ul>
                     <li>Handled computer-based operational work.</li>
                     <li>Maintained records and documentation.</li>
                     <li>Supported daily office operations.</li>
                 </ul>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================
-         SERVICES
-    ========================== -->
-
+    <!-- SERVICES -->
     <section id="services">
-
         <div class="section-title">
-
-            <h2>
-                IT <span>Services</span>
-            </h2>
-
-            <p>
-                Areas where I can provide technical support
-            </p>
-
+            <h2>IT <span>Services</span></h2>
+            <p>Areas where I can provide technical support</p>
         </div>
-
         <div class="services-grid">
-
             <div class="service">
                 <div class="icon">💻</div>
                 <h3>Desktop Support</h3>
-                <p>
-                    Hardware, software and operating system troubleshooting.
-                </p>
+                <p>Hardware, software and operating system troubleshooting.</p>
             </div>
-
             <div class="service">
                 <div class="icon">🌐</div>
                 <h3>Network Support</h3>
-                <p>
-                    LAN and network connectivity troubleshooting.
-                </p>
+                <p>LAN and network connectivity troubleshooting.</p>
             </div>
-
             <div class="service">
                 <div class="icon">🖥️</div>
                 <h3>System Support</h3>
-                <p>
-                    System installation, configuration and maintenance.
-                </p>
+                <p>System installation, configuration and maintenance.</p>
             </div>
-
             <div class="service">
                 <div class="icon">🖨️</div>
                 <h3>Printer Support</h3>
-                <p>
-                    Printer installation, configuration and troubleshooting.
-                </p>
+                <p>Printer installation, configuration and troubleshooting.</p>
             </div>
-
             <div class="service">
                 <div class="icon">🔐</div>
                 <h3>IT Security</h3>
-                <p>
-                    Basic security, access and system protection support.
-                </p>
+                <p>Basic security, access and system protection support.</p>
             </div>
-
             <div class="service">
                 <div class="icon">📊</div>
                 <h3>IT Documentation</h3>
-                <p>
-                    Asset records, reports and technical documentation.
-                </p>
+                <p>Asset records, reports and technical documentation.</p>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================
-         CONTACT US
-    ========================== -->
-
+    <!-- CONTACT -->
     <section class="contact" id="contact">
-
         <div class="section-title">
-
-            <h2>
-                Contact <span>Us</span>
-            </h2>
-
-            <p>
-                Let's connect and discuss your IT requirements
-            </p>
-
+            <h2>Contact <span>Us</span></h2>
+            <p>Let's connect and discuss your IT requirements</p>
         </div>
 
-
         <div class="contact-container">
-
             <!-- Contact Information -->
-
             <div class="contact-info">
-
                 <h3>Get In Touch</h3>
-
                 <p>
                     If you have any questions, IT support requirements,
                     or would like to discuss an opportunity, feel free
                     to contact me.
                 </p>
 
-
                 <div class="contact-detail">
-
                     <strong>👤 Name</strong>
-
-                    <span>
-                        Nitesh Singh
-                    </span>
-
+                    <span>Nitesh Singh</span>
                 </div>
 
-
                 <div class="contact-detail">
-
                     <strong>💼 Profession</strong>
-
-                    <span>
-                        IT Senior Executive
-                    </span>
-
+                    <span>IT Senior Executive</span>
                 </div>
 
-
                 <div class="contact-detail">
-
                     <strong>📧 Email</strong>
-
-                    <a href="mailto:sdniteshin@gmail.com">
-                        sdniteshin@gmail.com
-                    </a>
-
+                    <a href="mailto:sdniteshin@gmail.com">sdniteshin@gmail.com</a>
                 </div>
-
 
                 <div class="contact-detail">
-
                     <strong>📱 Phone</strong>
-
-                    <a href="tel:+917201994161">
-                        +91 7201994161
-                    </a>
-
+                    <a href="tel:+917201994161">+91 7201994161</a>
                 </div>
-
             </div>
-
 
             <!-- Contact Form -->
-
             <div class="contact-form">
-
                 <h3>Send Me a Message</h3>
 
+                <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxVHonpZUVCJ6oeA6VYpji-FFOcDBguBYYeNynI9HTNO6Zv6URggbqNnL5xbZhMtagiKg/exec" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
 
-                <!-- Contact Form -->
-<div class="contact-form">
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
 
-    <h3>Send Me a Message</h3>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
 
-    <form
-        action="https://script.google.com/macros/s/AKfycbxVHonpZUVCJ6oeA6VYpji-FFOcDBguBYYeNynI9HTNO6Zv6URggbqNnL5xbZhMtagiKg/exec"
-        method="POST"
-    >
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                    </div>
 
-        <!-- Name -->
-        <div class="form-group">
-            <label for="name">Your Name</label>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+                    </div>
 
-            <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter your name"
-                required
-            >
-        </div>
-
-        <!-- Email -->
-        <div class="form-group">
-            <label for="email">Your Email</label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-            >
-        </div>
-
-        <!-- Phone -->
-        <div class="form-group">
-            <label for="phone">Phone Number</label>
-
-            <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Enter your phone number"
-            >
-        </div>
-
-        <!-- Subject -->
-        <div class="form-group">
-            <label for="subject">Subject</label>
-
-            <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Enter subject"
-                required
-            >
-        </div>
-
-        <!-- Message -->
-        <div class="form-group">
-            <label for="message">Message</label>
-
-            <textarea
-                id="message"
-                name="message"
-                placeholder="Write your message..."
-                required
-            ></textarea>
-        </div>
-
-        <!-- Button -->
-        <button
-            type="submit"
-            class="contact-btn"
-        >
-            Send Message
-        </button>
-
-    </form>
-
-</div>
-
+                    <button type="submit" id="submit-btn" class="contact-btn">Send Message</button>
+                    <p id="form-status"></p>
+                </form>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
+    <!-- FOOTER -->
     <footer>
-
-        <p>
-            © 2026 Nitesh Singh. All Rights Reserved.
-        </p>
-
+        <p>© 2026 Nitesh Singh. All Rights Reserved.</p>
     </footer>
 
+    <!-- Form Submit Handler Script -->
+    <script>
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formStatus = document.getElementById('form-status');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+            formStatus.className = '';
+            formStatus.textContent = '';
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(() => {
+                formStatus.className = 'success';
+                formStatus.textContent = 'Message sent successfully!';
+                form.reset();
+            })
+            .catch(error => {
+                formStatus.className = 'error';
+                formStatus.textContent = 'Something went wrong. Please try again or email directly.';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Send Message';
+            });
+        });
+    </script>
 </body>
 
 </html>
-```
