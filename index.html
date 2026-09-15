@@ -1,960 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nitesh Singh | IT Senior Executive</title>
-
-    <style>
-        /* =========================
-           GLOBAL
-        ========================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b1120;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
-
-        /* =========================
-           NAVBAR
-        ========================= */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(11, 17, 32, 0.95);
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid #1f2937;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #38bdf8;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            color: #e5e7eb;
-            text-decoration: none;
-            font-size: 15px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #38bdf8;
-        }
-
-        /* =========================
-           HERO & PROFILE PHOTO
-        ========================= */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 8% 50px;
-            background: radial-gradient(circle at 80% 30%, #123b58 0%, transparent 30%), #0b1120;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .profile-pic {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid #38bdf8;
-            object-fit: cover;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-            background: #1e293b;
-        }
-
-        .change-photo-btn {
-            background: transparent;
-            color: #38bdf8;
-            border: 1px dashed #38bdf8;
-            padding: 7px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .change-photo-btn:hover {
-            background: rgba(56, 189, 248, 0.1);
-        }
-
-        .hero h4 {
-            color: #38bdf8;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 80px);
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: #cbd5e1;
-            max-width: 650px;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            margin-right: 10px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .primary {
-            background: #38bdf8;
-            color: #06121d;
-        }
-
-        .primary:hover {
-            background: #0ea5e9;
-            transform: translateY(-3px);
-        }
-
-        .secondary {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
-
-        .secondary:hover {
-            background: #38bdf8;
-            color: #06121d;
-        }
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
-        section {
-            padding: 90px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            color: white;
-        }
-
-        .section-title span {
-            color: #38bdf8;
-        }
-
-        .section-title p {
-            color: #94a3b8;
-            margin-top: 10px;
-        }
-
-        /* ABOUT */
-        .about {
-            background: #0f172a;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            color: #cbd5e1;
-            font-size: 17px;
-        }
-
-        /* SKILLS */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: #111827;
-            border: 1px solid #1f2937;
-            padding: 25px;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-7px);
-            border-color: #38bdf8;
-        }
-
-        .skill-card h3 {
-            color: #38bdf8;
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #94a3b8;
-        }
-
-        /* EXPERIENCE */
-        .experience {
-            background: #0f172a;
-        }
-
-        .timeline {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .job {
-            border-left: 3px solid #38bdf8;
-            padding: 0 0 35px 30px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .job::before {
-            content: "";
-            width: 14px;
-            height: 14px;
-            background: #38bdf8;
-            border-radius: 50%;
-            position: absolute;
-            left: -8px;
-            top: 3px;
-        }
-
-        .job h3 {
-            color: white;
-            font-size: 23px;
-        }
-
-        .job h4 {
-            color: #38bdf8;
-            margin: 5px 0;
-        }
-
-        .job p {
-            color: #94a3b8;
-        }
-
-        .job ul {
-            margin-top: 12px;
-            padding-left: 20px;
-            color: #cbd5e1;
-        }
-
-        /* SERVICES */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
-
-        .service {
-            background: #111827;
-            padding: 30px;
-            text-align: center;
-            border-radius: 10px;
-            border: 1px solid #1f2937;
-            transition: 0.3s;
-        }
-
-        .service:hover {
-            border-color: #38bdf8;
-            transform: translateY(-5px);
-        }
-
-        .service .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .service h3 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .service p {
-            color: #94a3b8;
-        }
-
-        /* =========================
-           CONTACT & FORM
-        ========================= */
-        .contact {
-            background: #0f172a;
-        }
-
-        .contact-container {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .contact-info,
-        .contact-form {
-            background: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 10px;
-            padding: 30px;
-        }
-
-        .contact-info h3,
-        .contact-form h3 {
-            color: white;
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
-
-        .contact-info > p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-        }
-
-        .contact-detail {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 18px;
-        }
-
-        .contact-detail strong {
-            color: #38bdf8;
-            margin-bottom: 4px;
-        }
-
-        .contact-detail span,
-        .contact-detail a {
-            color: #cbd5e1;
-            text-decoration: none;
-        }
-
-        .contact-detail a:hover {
-            color: #38bdf8;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #cbd5e1;
-            margin-bottom: 7px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 14px;
-            background: #0b1120;
-            color: white;
-            border: 1px solid #374151;
-            border-radius: 6px;
-            outline: none;
-            font-size: 15px;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #38bdf8;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .contact-btn {
-            width: 100%;
-            padding: 13px;
-            border: none;
-            border-radius: 6px;
-            background: #38bdf8;
-            color: #06121d;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .contact-btn:hover {
-            background: #0ea5e9;
-            transform: translateY(-2px);
-        }
-
-        .contact-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        #form-status {
-            margin-top: 15px;
-            font-size: 14px;
-            text-align: center;
-            display: none;
-        }
-
-        #form-status.success {
-            display: block;
-            color: #34d399;
-        }
-
-        #form-status.error {
-            display: block;
-            color: #f87171;
-        }
-
-        /* =========================
-           ADMIN PHOTO MODAL
-        ========================= */
-        #admin-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-card {
-            background: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-card h3 {
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .modal-card label {
-            display: block;
-            color: #94a3b8;
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
-        .modal-card input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            background: #0b1120;
-            border: 1px solid #374151;
-            color: white;
-            border-radius: 6px;
-            margin-bottom: 15px;
-        }
-
-        .modal-card input[type="file"] {
-            width: 100%;
-            color: #cbd5e1;
-            font-size: 13px;
-            margin-bottom: 15px;
-        }
-
-        .modal-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-
-        /* =========================
-           FOOTER & VISITOR COUNTER
-        ========================= */
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #070b14;
-            color: #64748b;
-        }
-
-        .visitor-counter {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #94a3b8;
-        }
-
-        #visitor-count {
-            color: #38bdf8;
-            font-weight: bold;
-            background: rgba(56, 189, 248, 0.1);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        @media (max-width: 700px) {
-            nav {
-                padding: 15px 5%;
-                flex-direction: column;
-                gap: 10px;
-            }
-            nav ul {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            section {
-                padding: 70px 5%;
-            }
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Shop - Today's Live Rates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-slate-50 text-slate-800">
 
-<body>
+  <!-- Top Announcement Bar -->
+  <div class="bg-amber-400 text-slate-900 text-xs font-semibold py-1.5 px-4 text-center">
+    ⚡ Daily Updated Pricing | Best Market Rates | Instant WhatsApp Inquiry
+  </div>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo">Welcome to My Site</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-
-            <!-- Profile Photo Area -->
-            <div class="profile-container">
-                <img id="profile-img" class="profile-pic" src="https://via.placeholder.com/150" alt="Nitesh Singh">
-                <button type="button" class="change-photo-btn" onclick="openLoginModal()">
-                    📷 Change Photo
-                </button>
-            </div>
-
-            <h4>Hello, I'm</h4>
-            <h1>Nitesh Singh</h1>
-            <h2>IT Senior Executive</h2>
-            <p>
-                IT professional experienced in system administration, hardware and software support,
-                networking, IT asset management, troubleshooting and day-to-day technical support.
-            </p>
-
-            <a href="#contact" class="btn primary">Contact Me</a>
-            <a href="resume.pdf" class="btn secondary" download>Download Resume</a>
+  <!-- Main Navigation / Header -->
+  <header class="bg-indigo-950 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">💻</span>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight">Tech Zone Computers</h1>
+          <p class="text-xs text-emerald-400 font-medium">● Store Open & Daily Rates Updated</p>
         </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <div class="section-title">
-            <h2>About <span>Me</span></h2>
-            <p>Professional IT Support & Administration</p>
-        </div>
-        <div class="about-content">
-            <p>
-                I am an IT professional focused on providing reliable technical support and maintaining smooth IT operations.
-                My work includes system troubleshooting, hardware and software management, network support, user assistance,
-                IT asset management and documentation.
-            </p>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-        <div class="section-title">
-            <h2>My <span>Skills</span></h2>
-            <p>Technical skills and areas of expertise</p>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>System Administration</h3>
-                <p>Windows systems, user management and system maintenance.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Hardware Support</h3>
-                <p>Desktop, laptop, printer and peripheral troubleshooting.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Networking</h3>
-                <p>LAN, connectivity, network troubleshooting and support.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Software Support</h3>
-                <p>Software installation, configuration and troubleshooting.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Microsoft Office</h3>
-                <p>MS Word, Excel, PowerPoint and daily office applications.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Google Workspace</h3>
-                <p>Google Sheets, documentation and collaborative work.</p>
-            </div>
-            <div class="skill-card">
-                <h3>IT Asset Management</h3>
-                <p>Computer, laptop, printer and IT equipment management.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Backup & Data</h3>
-                <p>Data management, backup support and documentation.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="experience" id="experience">
-        <div class="section-title">
-            <h2>Work <span>Experience</span></h2>
-            <p>My professional journey</p>
-        </div>
-        <div class="timeline">
-            <div class="job">
-                <h3>IT Senior Executive</h3>
-                <h4>Current Organization</h4>
-                <p>Present</p>
-                <ul>
-                    <li>Provided IT support to users and departments.</li>
-                    <li>Managed hardware and software troubleshooting.</li>
-                    <li>Supported network and system-related issues.</li>
-                    <li>Managed IT assets and equipment.</li>
-                    <li>Maintained IT documentation and records.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Neelkamal Polytex Pvt. Ltd.</h3>
-                <h4>IT / Computer & Billing Support</h4>
-                <p>Feb 2023 – Mar 2026</p>
-                <ul>
-                    <li>Maintained inward and outward stock records.</li>
-                    <li>Worked with Google Sheets for daily entries.</li>
-                    <li>Managed raw material and machine parts entries.</li>
-                    <li>Handled billing and documentation work.</li>
-                    <li>Worked with Tally Prime.</li>
-                    <li>Prepared and managed e-way bills.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Associate</h3>
-                <h4>Gati Kintetsu Express Pvt. Ltd.</h4>
-                <p>Previous Experience</p>
-                <ul>
-                    <li>Handled computer-based operational work.</li>
-                    <li>Maintained records and documentation.</li>
-                    <li>Supported daily office operations.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-        <div class="section-title">
-            <h2>IT <span>Services</span></h2>
-            <p>Areas where I can provide technical support</p>
-        </div>
-        <div class="services-grid">
-            <div class="service">
-                <div class="icon">💻</div>
-                <h3>Desktop Support</h3>
-                <p>Hardware, software and operating system troubleshooting.</p>
-            </div>
-            <div class="service">
-                <div class="icon">🌐</div>
-                <h3>Network Support</h3>
-                <p>LAN and network connectivity troubleshooting.</p>
-            </div>
-            <div class="service">
-                <div class="icon">🖥️</div>
-                <h3>System Support</h3>
-                <p>System installation, configuration and maintenance.</p>
-            </div>
-            <div class="service">
-                <div class="icon">🖨️</div>
-                <h3>Printer Support</h3>
-                <p>Printer installation, configuration and troubleshooting.</p>
-            </div>
-            <div class="service">
-                <div class="icon">🔐</div>
-                <h3>IT Security</h3>
-                <p>Basic security, access and system protection support.</p>
-            </div>
-            <div class="service">
-                <div class="icon">📊</div>
-                <h3>IT Documentation</h3>
-                <p>Asset records, reports and technical documentation.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-        <div class="section-title">
-            <h2>Contact <span>Us</span></h2>
-            <p>Let's connect and discuss your IT requirements</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <p>If you have any questions, IT support requirements, or would like to discuss an opportunity, feel free to contact me.</p>
-
-                <div class="contact-detail">
-                    <strong>👤 Name</strong>
-                    <span>Nitesh Singh</span>
-                </div>
-                <div class="contact-detail">
-                    <strong>💼 Profession</strong>
-                    <span>IT Senior Executive</span>
-                </div>
-                <div class="contact-detail">
-                    <strong>📧 Email</strong>
-                    <a href="mailto:sdniteshin@gmail.com">sdniteshin@gmail.com</a>
-                </div>
-                <div class="contact-detail">
-                    <strong>📱 Phone</strong>
-                    <a href="tel:+917201994161">+91 7201994161</a>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <h3>Send Me a Message</h3>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="contact-btn">Send Message</button>
-                    <p id="form-status"></p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ADMIN LOGIN MODAL -->
-    <div id="admin-modal">
-        <div class="modal-card">
-            <h3>Admin: Update Profile Photo</h3>
-            <label for="admin-pass">Password</label>
-            <input type="password" id="admin-pass" placeholder="Enter admin password">
-
-            <label for="photo-input">Select Photo</label>
-            <input type="file" id="photo-input" accept="image/*">
-
-            <p id="upload-status" style="font-size: 13px; margin-bottom: 12px; display: none;"></p>
-
-            <div class="modal-actions">
-                <button type="button" onclick="closeLoginModal()" style="padding: 8px 14px; background: #374151; color: white; border: none; border-radius: 4px; cursor: pointer;">Cancel</button>
-                <button type="button" id="upload-btn" onclick="submitPhotoUpload()" style="padding: 8px 16px; background: #38bdf8; color: #06121d; font-weight: bold; border: none; border-radius: 4px; cursor: pointer;">Upload</button>
-            </div>
-        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <a href="admin.html" target="_blank" class="bg-indigo-800 hover:bg-indigo-700 text-indigo-200 px-3 py-1.5 rounded-lg border border-indigo-700 transition">
+          Admin Login
+        </a>
+      </div>
     </div>
+  </header>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Nitesh Singh. All Rights Reserved.</p>
-        <div class="visitor-counter">
-            👁️ Total Visitors: <span id="visitor-count">Loading...</span>
-        </div>
-    </footer>
+  <!-- Banner Section -->
+  <section class="max-w-6xl mx-auto px-4 pt-6 pb-2">
+    <div class="bg-gradient-to-r from-indigo-900 to-blue-800 text-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <span class="bg-indigo-700 text-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Direct Deals</span>
+        <h2 class="text-2xl sm:text-3xl font-black mt-2">Laptops, Assembled PCs & Accessories</h2>
+        <p class="text-slate-300 text-sm mt-1">Aaj ke updated rates par best hardware purchase karein.</p>
+      </div>
+      <button onclick="loadProducts()" class="bg-white hover:bg-slate-100 text-indigo-900 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm shadow transition">
+        🔄 Refresh Rates
+      </button>
+    </div>
+  </section>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxVHonpZUVCJ6oeA6VYpji-FFOcDBguBYYeNynI9HTNO6Zv6URggbqNnL5xbZhMtagiKg/exec";
+  <!-- Filter Buttons -->
+  <section class="max-w-6xl mx-auto px-4 py-4">
+    <div class="flex gap-2 overflow-x-auto pb-2 text-xs font-semibold text-slate-600" id="filterBar">
+      <button onclick="filterCategory('All')" class="category-btn bg-indigo-600 text-white px-4 py-2 rounded-full shadow-sm">All Items</button>
+      <button onclick="filterCategory('Laptop')" class="category-btn bg-white hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-full">Laptops</button>
+      <button onclick="filterCategory('Desktop')" class="category-btn bg-white hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-full">Desktops / PC</button>
+      <button onclick="filterCategory('RAM/SSD')" class="category-btn bg-white hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-full">RAM & SSD</button>
+      <button onclick="filterCategory('Accessories')" class="category-btn bg-white hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-full">Accessories</button>
+      <button onclick="filterCategory('Printers')" class="category-btn bg-white hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-full">Printers</button>
+    </div>
+  </section>
 
-        // 1. AUTO-LOAD LATEST PHOTO FOR EVERY VISITOR
-        window.addEventListener("DOMContentLoaded", () => {
-            fetch(SCRIPT_URL)
-                .then(res => res.json())
-                .then(data => {
-                    if (data && data.photoUrl) {
-                        document.getElementById("profile-img").src = data.photoUrl;
-                    }
-                })
-                .catch(err => console.log("Default image active"));
+  <!-- Products Catalog Grid -->
+  <main class="max-w-6xl mx-auto px-4 pb-12">
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="col-span-full text-center py-12 text-slate-400 font-medium">Products load ho rahe hain...</div>
+    </div>
+  </main>
 
-            // Total visitor count
-            fetch("https://api.counterapi.dev/v1/nitesh-singh-portfolio/visitors/up")
-                .then(res => res.json())
-                .then(data => {
-                    if (data && data.count) {
-                        document.getElementById("visitor-count").textContent = data.count.toLocaleString();
-                    }
-                })
-                .catch(() => {
-                    document.getElementById("visitor-count").textContent = "1";
-                });
-        });
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
+    <p>© 2026 Tech Zone Computers. All Rights Reserved.</p>
+    <p class="mt-1 text-slate-500">Prices are subject to daily market changes.</p>
+  </footer>
 
-        // 2. CONTACT FORM SUBMIT
-        const contactForm = document.getElementById("contact-form");
-        const submitBtn = document.getElementById("submit-btn");
-        const formStatus = document.getElementById("form-status");
+  <script>
+    const API_URL = 'http://localhost:5000/api/products';
+    const WHATSAPP_NUMBER = '919415000000'; // Yahan apna shop ka WhatsApp mobile number daalein (bina + ke)
 
-        contactForm.addEventListener("submit", function(e) {
-            e.preventDefault();
+    let allProducts = [];
 
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Sending...";
-            formStatus.className = "";
-            formStatus.textContent = "";
+    async function loadProducts() {
+      const grid = document.getElementById('product-grid');
+      try {
+        const res = await fetch(API_URL);
+        allProducts = await res.json();
+        renderProducts(allProducts);
+      } catch (err) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-red-50 text-red-700 p-6 rounded-xl text-center border border-red-200">
+            <p class="font-bold">Products load nahi ho sake!</p>
+            <p class="text-xs mt-1">Make sure karein ki backend terminal me "node server.js" run ho raha hai.</p>
+          </div>`;
+      }
+    }
 
-            const formData = new FormData(contactForm);
+    function renderProducts(products) {
+      const grid = document.getElementById('product-grid');
+      if (!products || products.length === 0) {
+        grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-400">Filhaal koi product available nahi hai. Admin panel se add karein.</div>';
+        return;
+      }
 
-            fetch(SCRIPT_URL, {
-                method: "POST",
-                body: formData,
-                mode: "no-cors"
-            })
-            .then(() => {
-                formStatus.className = "success";
-                formStatus.textContent = "Message sent successfully!";
-                contactForm.reset();
-            })
-            .catch(() => {
-                formStatus.className = "error";
-                formStatus.textContent = "Something went wrong. Please try again.";
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Send Message";
-            });
-        });
+      grid.innerHTML = products.map(p => {
+        const discountPercent = p.original_price && p.original_price > p.daily_price 
+          ? Math.round(((p.original_price - p.daily_price) / p.original_price) * 100) 
+          : 0;
 
-        // 3. ADMIN PHOTO UPLOAD MODAL
-        function openLoginModal() {
-            document.getElementById("admin-modal").style.display = "flex";
-            document.getElementById("upload-status").style.display = "none";
+        const whatsappMsg = `Namaste! Mujhe aapki website par ye product pasand aaya hai:\n\n*Product:* ${p.title}\n*Category:* ${p.category}\n*Today's Rate:* ₹${p.daily_price}\n\nKya ye available hai?`;
+
+        return `
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+            <!-- Product Image -->
+            <div class="relative h-48 bg-slate-100 flex items-center justify-center overflow-hidden">
+              <img src="${p.image_url || 'https://via.placeholder.com/350x250?text=Computer+Part'}" 
+                   class="h-full w-full object-cover" 
+                   alt="${p.title}"
+                   onerror="this.src='https://via.placeholder.com/350x250?text=No+Photo'">
+              
+              ${!p.in_stock 
+                ? '<span class="absolute top-2 right-2 bg-red-600 text-white text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md font-bold shadow">Out of Stock</span>' 
+                : '<span class="absolute top-2 right-2 bg-emerald-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md font-bold shadow">Available</span>'
+              }
+
+              ${discountPercent > 0 ? `
+                <span class="absolute bottom-2 left-2 bg-amber-400 text-slate-900 text-[11px] font-extrabold px-2 py-0.5 rounded shadow">
+                  ${discountPercent}% OFF
+                </span>
+              ` : ''}
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] uppercase tracking-widest text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded">
+                  ${p.category}
+                </span>
+                <h3 class="font-bold text-slate-900 text-sm mt-2 line-clamp-2 leading-snug">${p.title}</h3>
+                <p class="text-xs text-slate-500 mt-1 line-clamp-2">${p.specs || 'Original warranty & brand packing.'}</p>
+              </div>
+
+              <!-- Price & Order Button -->
+              <div class="mt-4 pt-3 border-t border-slate-100">
+                <div class="flex items-baseline gap-2">
+                  <span class="text-xl font-black text-slate-900">₹${p.daily_price}</span>
+                  ${p.original_price ? `<span class="text-xs text-slate-400 line-through">₹${p.original_price}</span>` : ''}
+                </div>
+
+                <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}" 
+                   target="_blank" 
+                   class="mt-3 flex items-center justify-center gap-1.5 w-full bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white py-2 rounded-xl font-semibold text-xs transition shadow-sm">
+                  <span>💬 WhatsApp Par Order Karein</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterCategory(category) {
+      // Button highlights
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        if (btn.innerText.includes(category) || (category === 'All' && btn.innerText.includes('All'))) {
+          btn.className = 'category-btn bg-indigo-600 text-white px-4 py-2 rounded-full shadow-sm';
+        } else {
+          btn.className = 'category-btn bg-white hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-full';
         }
+      });
 
-        function closeLoginModal() {
-            document.getElementById("admin-modal").style.display = "none";
-        }
+      if (category === 'All') {
+        renderProducts(allProducts);
+      } else {
+        const filtered = allProducts.filter(p => p.category.toLowerCase() === category.toLowerCase());
+        renderProducts(filtered);
+      }
+    }
 
-        function submitPhotoUpload() {
-            const password = document.getElementById("admin-pass").value;
-            const fileInput = document.getElementById("photo-input");
-            const status = document.getElementById("upload-status");
-            const uploadBtn = document.getElementById("upload-btn");
-
-            if (!password) {
-                alert("Please enter the password.");
-                return;
-            }
-            if (fileInput.files.length === 0) {
-                alert("Please select a photo.");
-                return;
-            }
-
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-
-            status.style.display = "block";
-            status.style.color = "#38bdf8";
-            status.textContent = "Uploading photo...";
-            uploadBtn.disabled = true;
-
-            reader.onload = function(event) {
-                const base64Data = event.target.result;
-
-                const formData = new URLSearchParams();
-                formData.append("action", "upload_photo");
-                formData.append("password", password);
-                formData.append("image_data", base64Data);
-                formData.append("image_type", file.type);
-
-                fetch(SCRIPT_URL, {
-                    method: "POST",
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.result === "success") {
-                        status.style.color = "#34d399";
-                        status.textContent = "Photo updated successfully!";
-                        document.getElementById("profile-img").src = data.photoUrl;
-                        setTimeout(closeLoginModal, 1500);
-                    } else {
-                        status.style.color = "#f87171";
-                        status.textContent = data.message || "Upload failed.";
-                    }
-                })
-                .catch(() => {
-                    status.style.color = "#f87171";
-                    status.textContent = "Error uploading. Please verify deployment.";
-                })
-                .finally(() => {
-                    uploadBtn.disabled = false;
-                });
-            };
-
-            reader.readAsDataURL(file);
-        }
-    </script>
+    loadProducts();
+  </script>
 </body>
-
 </html>

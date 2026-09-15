@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Daily Rate & Photo Update</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-3 sm:p-6 text-gray-800">
+  <div class="max-w-4xl mx-auto space-y-6">
+
+    <!-- Header & Key -->
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col sm:flex-row gap-3 items-center justify-between">
+      <h1 class="font-bold text-lg text-indigo-700">⚙️ Shop Manager</h1>
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <label class="text-xs font-semibold text-gray-500">Secret Key:</label>
+        <input type="password" id="adminKey" value="shopadmin123" class="border rounded px-3 py-1 text-sm flex-1 sm:w-40">
+      </div>
+    </div>
+
+    <!-- Add Product Form -->
+    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+      <h2 class="font-bold text-gray-700 mb-3 text-base">➕ Naya Item Add Karein</h2>
+      <form id="addProductForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Product Title</label>
+          <input type="text" id="title" required placeholder="e.g. HP Laserjet 1020 Plus" class="w-full border rounded-lg p-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Category</label>
+          <select id="category" class="w-full border rounded-lg p-2 text-sm bg-white">
+            <option value="Laptop">Laptop</option>
+            <option value="Desktop">Desktop / Assembled PC</option>
+            <option value="RAM/SSD">RAM / SSD / Storage</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Printers">Printers & Inks</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Original Price (MRP)</label>
+          <input type="number" id="originalPrice" placeholder="e.g. 15000" class="w-full border rounded-lg p-2 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Today's Selling Rate (₹)</label>
+          <input type="number" id="dailyPrice" required placeholder="e.g. 12500" class="w-full border rounded-lg p-2 text-sm font-semibold">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-medium text-gray-600 mb-1">Specs / Details</label>
+          <input type="text" id="specs" placeholder="e.g. 1 Year Warranty, Single Function" class="w-full border rounded-lg p-2 text-sm">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-medium text-gray-600 mb-1">Product Photo</label>
+          <input type="file" id="productImage" accept="image/*" class="w-full border border-dashed rounded-lg p-2 text-sm bg-gray-50">
+        </div>
+        <div class="sm:col-span-2">
+          <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg text-sm transition">
+            Item Live Website Par Upload Karein
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Manage Existing Products -->
+    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="font-bold text-gray-700 text-base">📝 Rates Update Karein</h2>
+        <button onclick="fetchExistingProducts()" class="text-xs text-indigo-600 font-semibold hover:underline">Refresh</button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-gray-50 border-b text-xs text-gray-500 uppercase">
+            <tr>
+              <th class="p-2">Photo</th>
+              <th class="p-2">Title</th>
+              <th class="p-2">Rate (₹)</th>
+              <th class="p-2">Stock</th>
+              <th class="p-2 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminProductsTable" class="divide-y text-gray-700"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const API_BASE = 'http://localhost:5000/api/products';
+
+    document.getElementById('addProductForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.innerText = 'Uploading...';
+      btn.disabled = true;
+
+      const formData = new FormData();
+      formData.append('title', document.getElementById('title').value);
+      formData.append('category', document.getElementById('category').value);
+      formData.append('original_price', document.getElementById('originalPrice').value);
+      formData.append('daily_price', document.getElementById('dailyPrice').value);
+      formData.append('specs', document.getElementById('specs').value);
+      formData.append('admin_key', document.getElementById('adminKey').value);
+
+      const fileInput = document.getElementById('productImage');
+      if (fileInput.files[0]) {
+        formData.append('image', fileInput.files[0]);
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/add`, { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          alert('Product successfully upload ho gaya!');
+          document.getElementById('addProductForm').reset();
+          fetchExistingProducts();
+        } else {
+          alert('Error: ' + (data.error || 'Check details'));
+        }
+      } catch (err) {
+        alert('Server se connect nahi ho paya. Make sure server.js chal raha hai.');
+      } finally {
+        btn.innerText = 'Item Live Website Par Upload Karein';
+        btn.disabled = false;
+      }
+    });
+
+    async function fetchExistingProducts() {
+      try {
+        const res = await fetch(API_BASE);
+        const products = await res.json();
+        const tbody = document.getElementById('adminProductsTable');
+        tbody.innerHTML = products.map(p => `
+          <tr class="hover:bg-gray-50">
+            <td class="p-2">
+              <img src="${p.image_url || 'https://via.placeholder.com/50'}" class="w-10 h-10 object-cover rounded">
+            </td>
+            <td class="p-2 font-medium">${p.title}</td>
+            <td class="p-2">
+              <input type="number" id="price-${p.id}" value="${p.daily_price}" class="border rounded p-1 w-20 text-sm">
+            </td>
+            <td class="p-2">
+              <select id="stock-${p.id}" class="border rounded p-1 text-xs">
+                <option value="true" ${p.in_stock ? 'selected' : ''}>In Stock</option>
+                <option value="false" ${!p.in_stock ? 'selected' : ''}>Out of Stock</option>
+              </select>
+            </td>
+            <td class="p-2 text-right">
+              <button onclick="updatePrice(${p.id})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2 py-1 rounded text-xs">Save</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function updatePrice(id) {
+      const newPrice = document.getElementById(`price-${id}`).value;
+      const inStock = document.getElementById(`stock-${id}`).value === 'true';
+      const adminKey = document.getElementById('adminKey').value;
+
+      try {
+        const res = await fetch(`${API_BASE}/update-price/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ daily_price: newPrice, in_stock: inStock, admin_key: adminKey })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert('Price update ho gaya!');
+        } else {
+          alert('Failed: ' + data.error);
+        }
+      } catch (err) {
+        alert('Server issue!');
+      }
+    }
+
+    fetchExistingProducts();
+  </script>
+</body>
+</html>
